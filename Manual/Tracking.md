@@ -12,21 +12,16 @@ This project is tested in conda env and thus conda is recommended. To install co
 
 In your command window, locate the terminal prompt. Open this application. Then, find the folder that contains the `AlphaTracker` repository that you just downloaded. Then inside the terminal window, change the directory as follows: `cd /path/to/AlphaTracker`. 
 
-1. Create conda enviroment with dependencies by typing in the following:
-
+1. Create conda environment with dependencies by typing in the following:
 ```bash
 conda env create -f environment.yml
 ```
 
-If the above command line failed, please install the packages in the environment.yml that are failed to install manually and then run the following command line:
-
+If the above command line failed, please manually install the packages in the environment.yml that failed to install and then run the following command line:
 ```bash
 conda activate alphatracker
 conda env update --file environment.yml
 ```
-2. install pytorch following the guide from [Pytorch Website](https://pytorch.org/get-started/previous-versions/).
-
-(The code is tested with pytorch 0.4.0, pytorch 0.4.1)
 
 
 ### Install YOLO
@@ -37,14 +32,51 @@ cd ./Tracking/AlphaTracker/train_yolo/darknet/
 make
 cd ../../../../
 ```
+To test that your installation was successful:
+```bash
+cd ./Tracking/AlphaTracker/train_yolo/darknet/
+./darknet
+```
+If successful, you should see the following:
+```bash
+usage: ./darknet <function>
+```
+If it did not install but instead creates an error about shared libraries make sure your CUDA libraries are in your library path:
+```bash
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda-10.0
+./darknet
+```
+***Make sure the path in the above example points to the correct path on YOUR system.  ***
+
+You may choose to add this line to your ~/.bashrc file.
+
+### Install PyTorch
+Install pytorch following the guide from [Pytorch Website](https://pytorch.org/get-started/previous-versions/).
+(The code is tested with pytorch 0.4.0, pytorch 0.4.1)
+
+For example, to install with CUDA-9.0, 
+```bash
+conda install pytorch=0.4.1 cuda90 -c pytorch
+```
+
 
 ### Download weights 
+
+Install google drive on your system, if not already installed.
+```bash
+pip install googledrivedownloader
+```
 
 Download files from google drive and place them in specific locations by copy-pasting the following into the terminal window:
 ```bash
 conda activate alphatracker
 cd ./Tracking/AlphaTracker/
 python3 download.py
+```
+
+You can check that your sample data has downloaded correctly to the data directory
+```bash
+ls ./data/sample_annotated_data/demo
 ```
 
 <br>
