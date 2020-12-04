@@ -54,9 +54,9 @@ You may choose to add this line to your ~/.bashrc file.
 Install pytorch following the guide from [Pytorch Website](https://pytorch.org/get-started/previous-versions/).
 (The code is tested with pytorch 0.4.0, pytorch 0.4.1)
 
-For example, to install with CUDA-9.0, 
+For example, to install with CUDA-10.0, 
 ```bash
-conda install pytorch=0.4.1 cuda90 -c pytorch
+conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
 ```
 
 
