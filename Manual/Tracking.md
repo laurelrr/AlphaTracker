@@ -79,6 +79,16 @@ You can check that your sample data has downloaded correctly to the data directo
 ls ./data/sample_annotated_data/demo
 ```
 
+Detailed information on setting up data for training follows in the next section.  
+However, to check that your installation was successfull you may use the demo data to train weights
+```bash
+python train.py
+```
+You may run the tracking on the demo.mp4 video in ./data/
+```bash
+python track.py
+```
+
 <br>
 
 ## Training
